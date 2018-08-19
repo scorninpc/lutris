@@ -61,6 +61,7 @@ class LutrisWindow(Gtk.ApplicationWindow):
         self.runtime_updater = RuntimeUpdater()
         self.running_game = None
         self.threads_stoppers = []
+        self.xmbWindow = None
 
         # Emulate double click to workaround GTK bug #484640
         # https://bugzilla.gnome.org/show_bug.cgi?id=484640
@@ -196,6 +197,8 @@ class LutrisWindow(Gtk.ApplicationWindow):
                                      default=self.use_dark_theme),
             'show-side-bar': Action(self.on_sidebar_state_change, type='b',
                                     default=self.sidebar_visible, accel='F9'),
+
+            'xmb':Action(self.do_open_xmb),
         }
 
         self.actions = {}
@@ -219,6 +222,22 @@ class LutrisWindow(Gtk.ApplicationWindow):
             self.add_action(action)
             if value.accel:
                 app.add_accelerator(value.accel, 'win.' + name)
+
+
+    """
+    Experimental bigpicture like view
+    """
+    def do_open_xmb(self, a, b):
+        #for game in self.game_list:
+        #    print("\n\n%s\n" % gae)m
+        #
+        #self.on_game_run(self, game_id=3)
+
+        from .xmbwindow import XMBWindow
+
+        if not self.xmbWindow:
+            self.xmbWindow = XMBWindow(application=self)
+        self.xmbWindow.present()
 
     @property
     def current_view_type(self):

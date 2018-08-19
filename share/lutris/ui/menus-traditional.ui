@@ -23,6 +23,10 @@
           <attribute name="label">Manage runners</attribute>
           <attribute name="action">win.manage-runners</attribute>
         </item>
+        <item>
+          <attribute name="label">XMB</attribute>
+          <attribute name="action">win.xmb</attribute>
+        </item>
       </section>
       <section>
         <item>

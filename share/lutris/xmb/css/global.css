@@ -1,0 +1,226 @@
+/*
+	CSS Reset cross-browser
+	========================================================================== */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, a, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    vertical-align: baseline;
+    font-size: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+ul, ol {
+    list-style: outside none;
+}
+
+input, textarea {
+    outline: 0;
+    border: 0 none;
+    border-radius: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-style: normal;
+}
+
+address, em {
+    font-style: normal;
+}
+
+.hide {
+    display: none !important;
+}
+
+body {
+    position: relative;
+    margin: 0px;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+	Global
+	========================================================================== */
+body {
+    background: #598651;
+    color: #fff;
+    font-family: Roboto;
+}
+
+.events_area {
+    background: rgba(31, 68, 24, 0.22);
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    width: 130px;
+    height: 55px;
+    padding: 5px;
+    font-size: 10px;
+    z-index: 10;
+}
+
+.xmb_bar {overflow: hidden;height: 100%;width: 100%;opacity: 0;}
+
+.main_menu {
+    font-size: 0;
+    margin-top: 43.3333333333px;
+}
+
+.main_item {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.main_title {
+    width: 130px;
+    height: 65px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    /* text-indent: 9999%; */
+    position: relative;
+    text-align: center;
+    font-size: 0px;
+}
+
+.main_title img {
+    /* content: ''; */
+    /* width: 70px; */
+    /* height: 80px; */
+    /* display: block; */
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 50%; */
+    /* margin-left: -35px; */
+    text-align: center;
+    width: 45px;
+}
+
+/*
+.main_item.nintendo_64 .main_title:before {
+    background: transparent url(icons/game-controller_gamecube.png) 3px 8px no-repeat;
+}
+
+.main_item.super_nintendo .main_title:before {
+    background: transparent url(icons/game-controller_snes.png) 3px 9px no-repeat;
+}
+
+.main_item.nintendo .main_title:before {
+    background: transparent url(icons/game-controller_wii.png) -17px 8px no-repeat;
+    width: 29px;
+    margin-left: -15px;
+}
+
+.main_item.game_cube .main_title:before {
+    background: transparent url(icons/game-controller_n64.png) 2px 8px no-repeat;
+}
+*/
+
+.sub_menu {
+    display: none;
+    font-size: 15px;
+    position: relative;
+    position: absolute;
+    height: 500px;
+    /* width: 100%; */
+    top: 55px;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sub_item {
+    margin: 10px 0;
+    /* zoom: 0.7; */
+    margin-left: 7px;
+    /* opacity: 0.6; */
+    height: 18px;
+    line-height: 18px;
+    -webkit-transition: all .15s ease-in-out;
+}
+
+.sub_item a {
+    font-size: 16px;
+    position: relative;
+    color: #fff;
+    padding-left: 70px;
+    display: block;
+}
+
+.sub_item a:before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    position: absolute;
+    left: 0px;
+    top: -6px;
+    background: transparent url(../icons/list-item.png) 0px 0px;
+}
+
+.main_item.actived {
+}
+
+.main_item.actived .main_title {
+}
+
+.main_item.actived .sub_menu {
+    display: block;
+}
+
+.main_item.actived .sub_item {
+}
+
+.main_item.actived .sub_item a {}
+
+.main_item .sub_item.selected a:before {
+    content: '';
+    zoom: 0.9;
+    left: 3px;
+    top: -8px;
+}
+
+.main_item.actived .sub_item.selected {
+    /* zoom: 1; */
+    margin-left: 2px;
+    /* opacity: 1; */
+}
+
+.main_item.actived .sub_item.selected a {
+    padding-left: 53px;
+}
+.main_item.actived .sub_item > div {
+    zoom: 0.7;
+    opacity: 0.6;
+}
+.main_item.actived .sub_item.selected > div {
+    zoom: 1;
+    opacity: 1;
+}
