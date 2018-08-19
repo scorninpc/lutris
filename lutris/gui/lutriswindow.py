@@ -234,10 +234,7 @@ class LutrisWindow(Gtk.ApplicationWindow):
         #self.on_game_run(self, game_id=3)
 
         from .xmbwindow import XMBWindow
-
-        if not self.xmbWindow:
-            self.xmbWindow = XMBWindow(application=self)
-        self.xmbWindow.present()
+        self.xmbWindow = XMBWindow(application=self)
 
     @property
     def current_view_type(self):

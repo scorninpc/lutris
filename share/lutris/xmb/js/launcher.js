@@ -108,7 +108,7 @@ var Lutris = {
 			$.each(item, function(fake_index, game_item) {
 				var game_item_html = $('' + 
 					'	<li class="sub_item ' +  ((game_index == 0) ? 'selected' : '')+ '">' + 
-					'		<div><a href="#">' + game_item.name + '</a></div>' + 
+					'		<div><a href="rungame://game_id=' + game_item.id + '">' + game_item.name + '</a></div>' + 
 					'	</li>' + 
 					'');
 

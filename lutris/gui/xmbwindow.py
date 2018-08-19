@@ -15,6 +15,7 @@
 import os
 import sys
 import json
+import urllib
 import time
 import threading
 import gi
@@ -45,6 +46,7 @@ class XMBWindow(Gtk.ApplicationWindow):
         # webkit (see use of webkit, cause this use jdk with alot dependencies)
         webView = WebKit.WebView()
         webView.connect("load-finished", self.on_load_finished)
+        webView.connect("navigation-requested", self.on_navigation_requested)
         webView.open('' + os.path.join(datapath.get(), 'xmb', 'index.html'))
 
         settings = WebKit.WebSettings()
@@ -79,9 +81,32 @@ class XMBWindow(Gtk.ApplicationWindow):
         webview.execute_script(js)
 
         # Inicia o joystick
-        t = XMBJoystick(webview)
-        t.daemon = True
-        t.start()
+        #t = XMBJoystick(webview)
+        #t.daemon = True
+        #t.start()
+
+    """
+        On click on some link
+        """
+    def on_navigation_requested(self, view, frame, req, data=None):
+        uri = urllib.parse.unquote(req.get_uri())
+
+        # get scheme
+        scheme, path = uri.split(':', 1)
+
+        # verify if was rungame to open the game
+        if scheme == 'rungame':
+            # parse game id
+            game_id = uri[uri.index("game_id=")+8:]            
+            self.lutris.on_game_run(game_id=game_id)
+
+            # cancel the load page
+            return True
+
+        else:
+
+            # load page 
+            return False
 
     """
         on close window
